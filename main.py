@@ -22,7 +22,7 @@ def get_weather():
   url = "https://api.seniverse.com/v3/weather/daily.json?key=S1RrQCGQPhUq04Jyi&location=" + city+"&language=zh-Hans&unit=c&start=0&days=1"
   res = requests.get(url).json()
   weather = res['results'][0]['daily'][0]
-  return weather['text_day'], math.floor(weather['high']), math.floor(weather['low'])
+  return weather['text_day'], weather['high'], weather['low']
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
